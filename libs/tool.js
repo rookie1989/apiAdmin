@@ -3,15 +3,15 @@
  * Author：Rookie
  * creatTs：2017-12-03
  */
+
 var tool = {
     formatUrl: function(url) {
+        var prefix='/api';
         var str = url.trim().replace(prefix, "");
-        // url=/intention/orders/infos
-
         if (str.substr(str.length - 1, 1) == "/") {
-            var formatUrl = url.substring(0, basic.length - 1);
+            var formatUrl = str.substring(0, str.length - 1);
         } else {
-            var formatUrl = url;
+            var formatUrl = str;
         }
         return formatUrl;
     }
