@@ -14,14 +14,18 @@ router.get('/', async (ctx, next) => {
     })
 })
 
-router.get('/string', async (ctx, next) => {
-  ctx.body = 'koa2 string'
+router.get('/editApi', async (ctx, next) => {
+    console.log(ctx);
+    // 写一个方法来解析body
+    ctx.response.type = 'json';
+    ctx.response.body = {
+        data: 'Hello World'
+    };
 });
 
 router.get('/json', async (ctx, next) => {
   ctx.body = {
     title: 'koa2 json',
-
   }
 });
 

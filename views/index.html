@@ -20,7 +20,8 @@
                 <div class="section-title">
                     <h3>接口列表</h3>
                     <div class="btn-group">
-                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addApiModal">添加接口</button>
+                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addApiModal">添加接口
+                        </button>
                     </div>
                 </div>
                 <%if(list.length > 0){%>
@@ -36,13 +37,13 @@
                     <tbody>
                     <%list.forEach(function(item,index){%>
                     <tr>
-                        <td><span class="label label-warning"><%= item.method%></span>  <%= item.title%></td>
+                        <td><span class="label label-warning"><%= item.method%></span> <%= item.title%></td>
                         <td><%= item.description%></td>
                         <td><%= item.url%></td>
                         <td>
                             <div class="oper-list">
                                 <a href="/api<%=item.url%>" target="_blank" class="view act">查看结果</a>
-                                <a>重新编辑</a>
+                                <a id="editApi">重新编辑</a>
                                 <a>删除接口</a>
                             </div>
                         </td>
@@ -84,7 +85,8 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                </button>
                 <h4 class="modal-title" id="myModalLabel">添加接口</h4>
             </div>
             <div class="modal-body">
@@ -102,7 +104,22 @@
 
 <script>
     $(function () {
-        console.log("hi");
+        $("#editApi").on("click", function () {
+            $.ajax({
+                type : "GET",
+                url : "/editApi",
+                dataType : "json",
+                data : {
+                    url : "intention.orders.infos",
+                },
+                success: function (data, status) {
+                    console.log(data)
+                },
+                fail: function (err, status) {
+                    console.log(err)
+                }
+            })
+        });
     });
 </script>
 </body>
