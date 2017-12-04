@@ -42,7 +42,7 @@ router.post('/addApi', async (ctx, next) => {
     let jsonObj = new Object();
     jsonObj['title'] = title;
     jsonObj['description'] = description;
-    jsonObj['method'] = method;
+    jsonObj['method'] = method.toUpperCase();
     jsonObj['path'] = path;
     jsonObj['response'] = JSON.parse(code);
     // 格式化jsonObj是为了保持json文件的可读性
@@ -54,7 +54,12 @@ router.post('/addApi', async (ctx, next) => {
             resolve(fs.writeFileSync(jsonName, jsonString))
         });
         //把新的关系表保存到ajaxapilist
-        // saveName({name:urlName,url:jsonUrl.url,multi:jsonUrl.multi})
+        tool.saveName({
+            title:title,
+            description:description,
+            path:path,
+            method:method,
+        })
         read.then(function (response) {
             ctx.response.body = {success: true, message: "保存成功"};
         }).catch(function (response) {

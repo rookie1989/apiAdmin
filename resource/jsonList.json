@@ -1,19 +1,29 @@
 {
-  "warn": "存放所有的关系表，建议不要手动修改",
-  "dataList": [
-    {
-      "title": "本地用户信息",
-      "description": "描述",
-      "method":"POST",
-      "url": "/user/getUser",
-      "multi": true
-    },
-    {
-      "title": "infos",
-      "description": "描述2",
-      "method":"GET",
-      "url": "/intention/orders/infos",
-      "multi": true
-    }
-  ]
+    "warn": "存放所有的关系表，建议不要手动修改",
+    "dataList": [
+        {
+            "title": "ty",
+            "description": "sf",
+            "path": "/user/myname",
+            "method": "get"
+        },
+        {
+            "title": "ty",
+            "description": "sf",
+            "path": "/user/hi12",
+            "method": "get"
+        },
+        {
+            "title": "ty",
+            "description": "sf",
+            "path": "/user/hi11",
+            "method": "get"
+        },
+        {
+            "title": "ty",
+            "description": "sf",
+            "path": "/user/hi10",
+            "method": "get"
+        }
+    ]
 }

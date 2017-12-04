@@ -1,8 +1,8 @@
 {
     "title": "ty",
     "description": "sf",
-    "method": "get",
-    "path": "/user/hi3",
+    "method": "GET",
+    "path": "/user/myname",
     "response": {
         "name": "rookie",
         "age": 13,
