@@ -5,15 +5,16 @@
  */
 
 var tool = {
-    formatUrl: function(url) {
-        var prefix='/api';
+    getFilePath: function (url, method) {
+        var prefix = '/api';
         var str = url.trim().replace(prefix, "");
         if (str.substr(str.length - 1, 1) == "/") {
             var formatUrl = str.substring(0, str.length - 1);
         } else {
             var formatUrl = str;
         }
-        return formatUrl;
-    }
+        var filePath = "./resource/" + method + formatUrl.replace(/\//g, '.') + ".json";
+        return filePath;
+    },
 };
 module.exports = tool;

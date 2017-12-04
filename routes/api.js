@@ -12,11 +12,9 @@ router.get('/', function (ctx, next) {
 router.get('/*', function (ctx, next) {
     ctx.response.type = 'json';
     var req = ctx.request;
-
     var method = req.method;
-    var formatUrl=tool.formatUrl(req.url);
+    var filePath=tool.getFilePath(req.url,req.method);
 
-    var filePath = "./resource/" + method + formatUrl.replace(/\//g, '.') + ".json";
     var read = new Promise(function (resolve, reject) {
         resolve(fs.readFileSync(filePath))
     });

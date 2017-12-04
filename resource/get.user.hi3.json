@@ -1,0 +1,11 @@
+{
+    "title": "ty",
+    "description": "sf",
+    "method": "get",
+    "path": "/user/hi3",
+    "response": {
+        "name": "rookie",
+        "age": 13,
+        "day": 5
+    }
+}

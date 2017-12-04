@@ -1,0 +1,7 @@
+{
+    "title": "ty",
+    "description": "sf",
+    "method": "get",
+    "path": "/user/hi2",
+    "response": "{\n\"name\":\"rookie\",\n\"age\":13,\n\"day\":5\n}"
+}
