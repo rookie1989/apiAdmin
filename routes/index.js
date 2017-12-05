@@ -17,14 +17,10 @@ router.get('/', async (ctx, next) => {
 })
 
 router.post('/editApi', async (ctx, next) => {
-    console.log("=+++============");
+    console.log("edit api =============");
     console.log(ctx.request.body);
-    // 写一个方法来解析body
     ctx.response.type = 'json';
     ctx.response.body = ctx.request.body;
-    // ctx.response.body = {
-    //     data: 'Hello World'
-    // };
 });
 
 router.post('/addApi', async (ctx, next) => {
@@ -55,21 +51,62 @@ router.post('/addApi', async (ctx, next) => {
         });
         //把新的关系表保存到ajaxapilist
         tool.saveName({
-            title:title,
-            description:description,
-            path:path,
-            method:method,
-        })
+            title: title,
+            description: description,
+            path: path,
+            method: method,
+        });
         read.then(function (response) {
-            ctx.response.body = {success: true, message: "保存成功"};
+            ctx.response.body = {
+                success: true,
+                message: "保存成功"
+            };
         }).catch(function (response) {
-            ctx.response.body = {success: false, message: response};
+            ctx.response.body = {
+                success: false,
+                message: response
+            };
         })
     } else {
         //后台加一道拦截，防止没有文件名和url
         res.json({success: false, message: "名称或url不能为空"})
     }
 });
+
+router.post('/deleteApi', async (ctx, next) => {
+    console.log("delete api ============");
+    console.log(ctx.request.body);
+    let body = ctx.request.body;
+    let title = body.title;
+    let description = body.description;
+    let path = body.path;
+    let method = body.method.toLowerCase();
+    let jsonName = tool.getFilePath(path, method);
+
+    if (title && path) {
+        let del = new Promise(function(resolve,reject){
+            resolve(fs.unlinkSync(jsonName))
+        });
+        tool.saveName({
+            title: title,
+            description: description,
+            path: path,
+            method: method,
+            del: true
+        });
+        del.then(function(response){
+            ctx.response.body = {
+                success: true,
+                message: "删除成功"
+            };
+        }).catch(function(e){
+            ctx.response.body = {
+                success: false,
+                message: "删除失败"
+            };
+        })
+    }
+})
 
 router.get('/json', async (ctx, next) => {
     ctx.body = {

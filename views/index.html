@@ -43,10 +43,10 @@
                         <td><%= item.description%></td>
                         <td><%= item.path%></td>
                         <td>
-                            <div class="oper-list">
-                                <a data-method="<%= item.method%>" data-path="<%= item.path%>" class="view-detail">查看结果</a>
+                            <div class="oper-list" data-title="<%= item.title%>" data-description="<%= item.description%>" data-method="<%= item.method%>" data-path="<%= item.path%>">
+                                <a class="view-detail">查看结果</a>
                                 <a class="edit-api">重新编辑</a>
-                                <a>删除接口</a>
+                                <a class="delete-api">删除接口</a>
                             </div>
                         </td>
                     </tr>

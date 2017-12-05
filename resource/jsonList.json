@@ -2,22 +2,10 @@
     "warn": "存放所有的关系表，建议不要手动修改",
     "dataList": [
         {
-            "title": "titlea",
-            "description": "sfd",
-            "path": "/hi/fuck/list",
-            "method": "post"
-        },
-        {
             "title": "获取地址信息",
             "description": "get 地址信息",
             "path": "/local/info/of/this",
             "method": "post"
-        },
-        {
-            "title": "ty",
-            "description": "sf",
-            "path": "/user/myname",
-            "method": "get"
         },
         {
             "title": "ty",
