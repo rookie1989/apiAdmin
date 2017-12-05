@@ -17,10 +17,67 @@ router.get('/', async (ctx, next) => {
 })
 
 router.post('/editApi', async (ctx, next) => {
-    console.log("edit api =============");
-    console.log(ctx.request.body);
+    let body = ctx.request.body;
+    let title = body.title;
+    let description = body.description;
+    let path = body.path;
+    let orginalPath = body.orginalPath;
+    let method = body.method.toLowerCase();
+    let orginalMethod = body.orginalMethod.toLowerCase();
+    let code = body.code;
+
+    var jsonName = tool.getFilePath(path, method);
+    var jsonName_0 = tool.getFilePath(orginalPath, orginalMethod);
+
+    if (path != orginalPath || method != orginalMethod) {
+        fs.rename(jsonName_0, jsonName, function (err) {
+            if (err) {
+                throw err;
+            }
+            console.log('done!');
+        })
+    }
+
+    // 拼装json内容start
+    let jsonObj = new Object();
+    jsonObj['title'] = title;
+    jsonObj['description'] = description;
+    jsonObj['method'] = method.toUpperCase();
+    jsonObj['path'] = path;
+    jsonObj['response'] = JSON.parse(code);
+    // 格式化jsonObj是为了保持json文件的可读性
+    var jsonString = JSON.stringify(jsonObj, null, 4);
+    // 拼装json内容end
     ctx.response.type = 'json';
-    ctx.response.body = ctx.request.body;
+    if (path) {
+        var read = new Promise(function (resolve, reject) {
+            resolve(fs.writeFileSync(jsonName, jsonString))
+        });
+        //更新新的数据到关系表
+        tool.updateName({
+            title: title,
+            description: description,
+            orginalPath: orginalPath,
+            path: path,
+            method: method,
+        });
+        read.then(function (response) {
+            ctx.response.body = {
+                success: true,
+                message: "保存成功"
+            };
+        }).catch(function (response) {
+            ctx.response.body = {
+                success: false,
+                message: "保存失败"
+            };
+        })
+    } else {
+        ctx.response.body = {
+            success: false,
+            message: "缺失参数"
+        };
+    }
 });
 
 router.post('/addApi', async (ctx, next) => {
@@ -49,7 +106,7 @@ router.post('/addApi', async (ctx, next) => {
         var read = new Promise(function (resolve, reject) {
             resolve(fs.writeFileSync(jsonName, jsonString))
         });
-        //把新的关系表保存到ajaxapilist
+        //保存关系表
         tool.saveName({
             title: title,
             description: description,
@@ -84,7 +141,7 @@ router.post('/deleteApi', async (ctx, next) => {
     let jsonName = tool.getFilePath(path, method);
 
     if (title && path) {
-        let del = new Promise(function(resolve,reject){
+        let del = new Promise(function (resolve, reject) {
             resolve(fs.unlinkSync(jsonName))
         });
         tool.saveName({
@@ -94,12 +151,12 @@ router.post('/deleteApi', async (ctx, next) => {
             method: method,
             del: true
         });
-        del.then(function(response){
+        del.then(function (response) {
             ctx.response.body = {
                 success: true,
                 message: "删除成功"
             };
-        }).catch(function(e){
+        }).catch(function (e) {
             ctx.response.body = {
                 success: false,
                 message: "删除失败"

@@ -8,6 +8,7 @@ const fs = require('fs');
 var tool = {
     getFilePath: function (url, method) {
         var prefix = '/api';
+        console.log(url);
         var str = url.trim().replace(prefix, "");
         if (str.substr(str.length - 1, 1) == "/") {
             var formatUrl = str.substring(0, str.length - 1);
@@ -62,10 +63,43 @@ var tool = {
                 })))
             })
         })
-        _write.then(function () {
-
-        }).catch(function () {
-
+    },
+    updateName: function (obj) {
+        //存储文件名和url到ajaxapilist文件
+        var jsonName = './resource/jsonList.json';
+        var read = new Promise(function (resolve, reject) {
+            resolve(fs.readFileSync(jsonName))
+        });
+        var _write = new Promise(function (resolve, reject) {
+            read.then(function (response) {
+                var list = JSON.parse(response).dataList;
+                if (list) {
+                    for (var i = 0; i < list.length; i++) {
+                        if (obj["orginalPath"] == list[i]["path"]) {
+                            list[i]["title"] = obj["title"];
+                            list[i]["description"] = obj["description"];
+                            list[i]["path"] = obj["path"];
+                            list[i]["method"] = obj["method"];
+                            continue;
+                        }
+                    }
+                }
+                resolve(fs.writeFileSync(jsonName, JSON.stringify({
+                    warn: "存放所有的关系表，建议不要手动修改",
+                    dataList: list
+                }, null, 4)))
+            }).catch(function (response) {
+                console.log('reset')
+                resolve(fs.writeFileSync(jsonName, JSON.stringify({
+                    "warn": "存放所有的关系表，建议不要手动修改",
+                    "dataList": [{
+                        "title": obj.title,
+                        "description": obj.description,
+                        "path": obj.path,
+                        "method": obj.method
+                    }]
+                })))
+            })
         })
     }
 };

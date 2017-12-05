@@ -20,8 +20,7 @@
                 <div class="section-title">
                     <h3>接口列表</h3>
                     <div class="btn-group">
-                        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#addApiModal">添加接口
-                        </button>
+                        <button id="wantAddApi" class="btn btn-primary btn-sm">添加接口</button>
                     </div>
                 </div>
                 <%if(list.length > 0){%>
@@ -43,7 +42,9 @@
                         <td><%= item.description%></td>
                         <td><%= item.path%></td>
                         <td>
-                            <div class="oper-list" data-title="<%= item.title%>" data-description="<%= item.description%>" data-method="<%= item.method%>" data-path="<%= item.path%>">
+                            <div class="oper-list" data-title="<%= item.title%>"
+                                 data-description="<%= item.description%>" data-method="<%= item.method%>"
+                                 data-path="<%= item.path%>">
                                 <a class="view-detail">查看结果</a>
                                 <a class="edit-api">重新编辑</a>
                                 <a class="delete-api">删除接口</a>
@@ -87,6 +88,41 @@
         <div id="apiDetailInfo" class="api-detail-info">info</div>
         <div id="apiDetailCode" class="api-detail-code">
             <pre></pre>
+        </div>
+    </div>
+</div>
+<div id="operApiWrap" class="oper-api-wrap">
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="operApiTitle">title</label>
+                <input type="email" class="form-control" id="operApiTitle" placeholder="api title">
+            </div>
+            <div class="form-group">
+                <label for="operApiDesc">description</label>
+                <input type="text" class="form-control" id="operApiDesc" placeholder="description">
+            </div>
+            <div class="form-group">
+                <label for="operApiPath">path</label>
+                <input type="text" class="form-control" id="operApiPath" placeholder="description">
+                <input type="hidden" class="form-control" id="operApiOrginalPath">
+            </div>
+            <div class="form-group">
+                <label for="operApiMethod">Method</label>
+                <input type="hidden" class="form-control" id="operApiOrginalMethod">
+                <select id="operApiMethod" class="form-control">
+                    <option value="GET">GET</option>
+                    <option value="POST">POST</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="operApiCode">code</label>
+                <textarea placeholder="code" class="form-control" id="operApiCode" rows="7"></textarea>
+            </div>
+        </form>
+        <div class="btn">
+            <button type="button" id="confirmOperApiWrap" class="btn btn-primary">确定</button>
+            <button type="button" id="hideOperApiWrap" class="btn btn-warning">取消</button>
         </div>
     </div>
 </div>

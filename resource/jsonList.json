@@ -2,9 +2,15 @@
     "warn": "存放所有的关系表，建议不要手动修改",
     "dataList": [
         {
+            "title": "banner",
+            "description": "banner---sb",
+            "path": "/banner/show/list03",
+            "method": "get"
+        },
+        {
             "title": "获取地址信息",
             "description": "get 地址信息",
-            "path": "/local/info/of/this",
+            "path": "/local/info/of/that",
             "method": "post"
         },
         {

@@ -1,0 +1,14 @@
+{
+    "title": "banner",
+    "description": "banner---sb",
+    "method": "GET",
+    "path": "/banner/show/list03",
+    "response": {
+        "id": 2000,
+        "type": 0,
+        "imgUrl": "https://img.zb100.com/other/bannerImg/headerBannerImg.jpg",
+        "linkUrl": "https://img.zb100.com/other/bannerImg/rentCommodityDetail.jpeg",
+        "name": "顶部banner",
+        "sort": 123
+    }
+}
