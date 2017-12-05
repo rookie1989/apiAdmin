@@ -1,0 +1,13 @@
+{
+    "title": "titlea",
+    "description": "sfd",
+    "method": "POST",
+    "path": "/hi/fuck/list",
+    "response": {
+        "id": 6,
+        "type": 1,
+        "imgUrl": "https://img.zb100.com/daily/other/1493951303407925.jpg",
+        "name": "金秋送豪礼，裸钻99起",
+        "sort": 0
+    }
+}

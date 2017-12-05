@@ -9,8 +9,10 @@ router.get('/', function (ctx, next) {
     ctx.response.body = {data: 'Hello World'};
 })
 // *匹配以api为首的接口
-router.get('/*', function (ctx, next) {
+router.all('/*', function (ctx, next) {
     ctx.response.type = 'json';
+    // console.log("=======================");
+    // console.log(ctx);
     var req = ctx.request;
     var method = req.method;
     var filePath=tool.getFilePath(req.url,req.method);
@@ -21,7 +23,7 @@ router.get('/*', function (ctx, next) {
 
     read.then(function (response) {
         response = JSON.parse(response);
-        ctx.response.body = response ? response.response : {};
+        ctx.response.body = response ? response : {};
     }).catch(function (response) {
         ctx.response.body = {
             results: "Path does not exist /(ㄒoㄒ)/~~"
