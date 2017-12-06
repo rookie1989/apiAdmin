@@ -72,6 +72,8 @@ $(function () {
         $('#json-target').html('');
     });
     $('.save').click(function () {
+        alert("功能开发中...");
+        return;
         var content = JSON.stringify(current_json);
         $('#txt-content').val(content);
         $("#form-save").submit();

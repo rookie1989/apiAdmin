@@ -4,7 +4,7 @@
     "method": "GET",
     "path": "/test/my/banner-test",
     "response": {
-        "caratPrice": 166100,
+        "caratPrice": 166123,
         "catId": 4,
         "catName": "沙弗莱fine",
         "commodityId": 639011,

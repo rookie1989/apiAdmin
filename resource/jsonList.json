@@ -11,7 +11,7 @@
             "title": "banner",
             "description": "banner---sb",
             "path": "/banner/show/list02",
-            "method": "get"
+            "method": "post"
         },
         {
             "title": "获取地址信息",
