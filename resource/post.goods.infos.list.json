@@ -1,0 +1,17 @@
+{
+    "title": "test api",
+    "description": "test api desc",
+    "method": "POST",
+    "path": "/goods/infos/list",
+    "response": {
+        "catId": 26,
+        "catName": "白钻",
+        "commodityId": 1237555,
+        "costPrice": 2000000,
+        "entryDetailNo": "262533",
+        "entryNo": "125",
+        "feature": {
+            "shape": "圆形"
+        }
+    }
+}

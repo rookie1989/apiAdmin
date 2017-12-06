@@ -2,15 +2,21 @@
     "warn": "存放所有的关系表，建议不要手动修改",
     "dataList": [
         {
-            "title": "采购退货导出",
-            "description": "采购退货导出",
-            "path": "/supplement/refunds/export",
-            "method": "GET"
+            "title": "test api",
+            "description": "test api desc",
+            "path": "/goods/infos/list",
+            "method": "post"
         },
         {
             "title": "获取客户信息",
             "description": "获取客户信息",
             "path": "/customers/infos",
+            "method": "GET"
+        },
+        {
+            "title": "采购退货导出",
+            "description": "采购退货导出",
+            "path": "/supplement/refunds/export",
             "method": "GET"
         },
         {
