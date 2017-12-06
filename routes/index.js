@@ -11,7 +11,7 @@ router.get('/', async (ctx, next) => {
     var list = JSON.parse(read).dataList ? JSON.parse(read).dataList : [];
 
     await ctx.render('index', {
-        title: "index title",
+        title: "API Admin",
         list: list
     })
 })

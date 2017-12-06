@@ -154,8 +154,18 @@ $(function () {
     });
     // 隐藏hideOperApiWrap
     $("#hideOperApiWrap").on("click", function () {
-        // TODO
         $("#operApiWrap").hide();
+        $("#operApiWrap").removeAttr("data-type");
+        // 清空表单数据
+        $("#operApiTitle").val("");
+        $("#operApiDesc").val("");
+        $("#operApiPath").val("");
+        $("#operApiOrginalPath").val("");
+        $("#operApiMethod").val("");
+        $("#operApiOrginalMethod").val("");
+        $("#operApiCode").val("");
+
+        $('#json-target').html('');
     });
     $("#confirmOperApiWrap").on("click", function () {
         var title = $("#operApiTitle").val().trim();
