@@ -2,12 +2,6 @@
     "warn": "存放所有的关系表，建议不要手动修改",
     "dataList": [
         {
-            "title": "test api",
-            "description": "test api desc",
-            "path": "/goods/infos/list",
-            "method": "post"
-        },
-        {
             "title": "获取客户信息",
             "description": "获取客户信息",
             "path": "/customers/infos",
@@ -24,6 +18,12 @@
             "description": "采购退货接口",
             "path": "/supplement/refunds/infos",
             "method": "GET"
+        },
+        {
+            "title": "test api",
+            "description": "test api desc",
+            "path": "/goods/infos/list",
+            "method": "POST"
         }
     ]
 }

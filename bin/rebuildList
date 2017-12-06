@@ -35,7 +35,7 @@ let tool = require("../libs/tool");
         });
         fs.unlinkSync(jsonName);
         fs.writeFileSync(jsonName, jsonString);
-        fs.closeSync = function(fd) {
+        fs.closeSync = function (fd) {
             return binding.close(fd);
         };
         console.log("Rebuild Json list has done")
@@ -63,6 +63,7 @@ let tool = require("../libs/tool");
         });
     };
     readDirSync(root);
+    console.log(files);
     files.map((file, index, arr) => {
         getItem(file, index, arr);
     });

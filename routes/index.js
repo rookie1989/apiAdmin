@@ -3,7 +3,7 @@ const fs = require('fs');
 const tool = require('../libs/tool');
 
 router.get('/', async (ctx, next) => {
-    console.log(ctx);
+    // console.log(ctx);
     var jsonName = './resource/jsonList.json';
     var haveList = false;
     var list = [];
@@ -14,7 +14,7 @@ router.get('/', async (ctx, next) => {
         title: "API Admin",
         list: list
     })
-})
+});
 
 router.post('/editApi', async (ctx, next) => {
     let body = ctx.request.body;
