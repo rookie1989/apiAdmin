@@ -2,20 +2,26 @@
     "warn": "存放所有的关系表，建议不要手动修改",
     "dataList": [
         {
+            "title": "mytestapi",
+            "description": "my test api",
+            "path": "/test/my/banner-test",
+            "method": "get"
+        },
+        {
             "title": "banner",
             "description": "banner---sb",
-            "path": "/banner/show/list03",
+            "path": "/banner/show/list02",
             "method": "get"
         },
         {
             "title": "获取地址信息",
             "description": "get 地址信息",
-            "path": "/local/info/of/that",
+            "path": "/local/info/thatfuck",
             "method": "post"
         },
         {
-            "title": "ty",
-            "description": "sf",
+            "title": "获取XXX",
+            "description": "接口描述",
             "path": "/intention/orders/infos",
             "method": "get"
         }

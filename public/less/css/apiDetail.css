@@ -28,3 +28,11 @@
   overflow-x: hidden;
   overflow-y: scroll;
 }
+.oper-api-wrap .oper-api-info {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+.oper-api-wrap .btns button {
+  width: 72px;
+  margin-right: 10px;
+}

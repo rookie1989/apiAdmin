@@ -87,7 +87,9 @@ $(function () {
                 $("#operApiMethod").val(data.method);
                 $("#operApiOrginalMethod").val(data.method);
 
+
                 $("#operApiCode").val(JSON.stringify(data.response, null, 4));
+                $('#operApiCode').keyup();
             },
             fail: function (err, status) {
                 console.log(err)

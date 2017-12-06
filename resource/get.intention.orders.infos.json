@@ -1,291 +1,291 @@
 {
-  "title": "获取XXX",
-  "description": "接口描述",
-  "method": "GET",
-  "path": "/intention/orders/infos",
-  "response": {
-    "code": "200",
-    "data": {
-      "models": [
-        {
-          "catCount": 1,
-          "contactName": "子鱼",
-          "contactPhone": "18270837940",
-          "details": [
-            {
-              "caratPrice": 166000,
-              "catId": 4,
-              "catName": "沙弗莱",
-              "commodityId": 639011,
-              "features": {
-                "color": "1#",
-                "shape": "蛋形/椭圆形",
-                "clarity": "A-",
-                "length": 700,
-                "cutting": "VG",
-                "width": 500
-              },
-              "id": 294,
-              "num": 10,
-              "orderNo": "001512090854182260"
-            }
-          ],
-          "id": 260,
-          "orderNo": "001512090854182260",
-          "status": 0,
-          "statusDescription": "已创建",
-          "userId": 65593,
-          "userName": "子鱼",
-          "utcCreate": 1512090854000
+    "title": "获取XXX",
+    "description": "接口描述",
+    "method": "GET",
+    "path": "/intention/orders/infos",
+    "response": {
+        "code": "200",
+        "data": {
+            "models": [
+                {
+                    "catCount": 1,
+                    "contactName": "子鱼",
+                    "contactPhone": "18270837940",
+                    "details": [
+                        {
+                            "caratPrice": 166000,
+                            "catId": 4,
+                            "catName": "沙弗莱",
+                            "commodityId": 639011,
+                            "features": {
+                                "color": "1#",
+                                "shape": "蛋形/椭圆形",
+                                "clarity": "A-",
+                                "length": 700,
+                                "cutting": "VG",
+                                "width": 500
+                            },
+                            "id": 294,
+                            "num": 10,
+                            "orderNo": "001512090854182260"
+                        }
+                    ],
+                    "id": 260,
+                    "orderNo": "001512090854182260",
+                    "status": 0,
+                    "statusDescription": "已创建",
+                    "userId": 65593,
+                    "userName": "子鱼",
+                    "utcCreate": 1512090854000
+                },
+                {
+                    "catCount": 1,
+                    "contactName": "子鱼",
+                    "contactPhone": "",
+                    "details": [
+                        {
+                            "caratPrice": 166000,
+                            "catId": 4,
+                            "catName": "沙弗莱",
+                            "commodityId": 639011,
+                            "features": {
+                                "color": "1#",
+                                "shape": "蛋形/椭圆形",
+                                "clarity": "A-",
+                                "length": 700,
+                                "cutting": "VG",
+                                "width": 500
+                            },
+                            "id": 293,
+                            "orderNo": "001512036348171259",
+                            "weight": "10.00"
+                        }
+                    ],
+                    "id": 259,
+                    "orderNo": "001512036348171259",
+                    "status": 0,
+                    "statusDescription": "已创建",
+                    "userId": 65593,
+                    "userName": "子鱼",
+                    "utcCreate": 1512036348000
+                },
+                {
+                    "catCount": 1,
+                    "contactName": "子鱼",
+                    "contactPhone": "18270837940",
+                    "details": [
+                        {
+                            "caratPrice": 124000,
+                            "catId": 4,
+                            "catName": "沙弗莱",
+                            "commodityId": 639020,
+                            "features": {
+                                "color": "2#",
+                                "shape": "蛋形/椭圆形",
+                                "clarity": "A-",
+                                "length": 700,
+                                "cutting": "VG",
+                                "width": 500
+                            },
+                            "id": 291,
+                            "orderNo": "001512036081651257",
+                            "weight": "10.00"
+                        }
+                    ],
+                    "id": 257,
+                    "orderNo": "001512036081651257",
+                    "status": 0,
+                    "statusDescription": "已创建",
+                    "userId": 65593,
+                    "userName": "子鱼",
+                    "utcCreate": 1512036082000
+                },
+                {
+                    "catCount": 1,
+                    "details": [
+                        {
+                            "caratPrice": 248000,
+                            "catId": 4,
+                            "catName": "沙弗莱",
+                            "commodityId": 639006,
+                            "features": {
+                                "color": "1#",
+                                "shape": "蛋形/椭圆形",
+                                "clarity": "A+",
+                                "length": 700,
+                                "cutting": "G",
+                                "width": 500
+                            },
+                            "id": 290,
+                            "orderNo": "001512008644867256",
+                            "weight": "1.00"
+                        }
+                    ],
+                    "id": 256,
+                    "invitingUserId": 69,
+                    "invitingUserName": "皮皮杰",
+                    "orderNo": "001512008644867256",
+                    "status": 0,
+                    "statusDescription": "已创建",
+                    "userId": 70,
+                    "userName": "白饭",
+                    "utcCreate": 1512008645000
+                },
+                {
+                    "catCount": 1,
+                    "details": [
+                        {
+                            "caratPrice": 248000,
+                            "catId": 4,
+                            "catName": "沙弗莱",
+                            "commodityId": 639006,
+                            "features": {
+                                "color": "1#",
+                                "shape": "蛋形/椭圆形",
+                                "clarity": "A+",
+                                "length": 700,
+                                "cutting": "G",
+                                "width": 500
+                            },
+                            "id": 289,
+                            "orderNo": "001512008013670255",
+                            "weight": "1.00"
+                        }
+                    ],
+                    "id": 255,
+                    "invitingUserId": 69,
+                    "invitingUserName": "皮皮杰",
+                    "orderNo": "001512008013670255",
+                    "status": 0,
+                    "statusDescription": "已创建",
+                    "userId": 70,
+                    "userName": "白饭",
+                    "utcCreate": 1512008014000
+                },
+                {
+                    "catCount": 1,
+                    "details": [
+                        {
+                            "caratPrice": 248000,
+                            "catId": 4,
+                            "catName": "沙弗莱",
+                            "commodityId": 639006,
+                            "features": {
+                                "color": "1#",
+                                "shape": "蛋形/椭圆形",
+                                "clarity": "A+",
+                                "length": 700,
+                                "cutting": "G",
+                                "width": 500
+                            },
+                            "id": 288,
+                            "orderNo": "001512007987335254",
+                            "weight": "1.00"
+                        }
+                    ],
+                    "id": 254,
+                    "invitingUserId": 69,
+                    "invitingUserName": "皮皮杰",
+                    "orderNo": "001512007987335254",
+                    "status": 0,
+                    "statusDescription": "已创建",
+                    "userId": 70,
+                    "userName": "白饭",
+                    "utcCreate": 1512007987000
+                },
+                {
+                    "catCount": 1,
+                    "details": [
+                        {
+                            "caratPrice": 248000,
+                            "catId": 4,
+                            "catName": "沙弗莱",
+                            "commodityId": 639006,
+                            "features": {
+                                "color": "1#",
+                                "shape": "蛋形/椭圆形",
+                                "clarity": "A+",
+                                "length": 700,
+                                "cutting": "G",
+                                "width": 500
+                            },
+                            "id": 286,
+                            "orderNo": "001512007765416252",
+                            "weight": "1.00"
+                        }
+                    ],
+                    "id": 252,
+                    "invitingUserId": 69,
+                    "invitingUserName": "皮皮杰",
+                    "orderNo": "001512007765416252",
+                    "status": 0,
+                    "statusDescription": "已创建",
+                    "userId": 70,
+                    "userName": "白饭",
+                    "utcCreate": 1512007765000
+                },
+                {
+                    "catCount": 1,
+                    "details": [
+                        {
+                            "caratPrice": 248000,
+                            "catId": 4,
+                            "catName": "沙弗莱",
+                            "commodityId": 639006,
+                            "features": {
+                                "color": "1#",
+                                "shape": "蛋形/椭圆形",
+                                "clarity": "A+",
+                                "length": 700,
+                                "cutting": "G",
+                                "width": 500
+                            },
+                            "id": 284,
+                            "orderNo": "001511944900279250",
+                            "weight": "10000.00"
+                        }
+                    ],
+                    "id": 250,
+                    "orderNo": "001511944900279250",
+                    "status": 0,
+                    "statusDescription": "已创建",
+                    "userId": 65593,
+                    "userName": "子鱼",
+                    "utcCreate": 1511944900000
+                },
+                {
+                    "catCount": 1,
+                    "details": [
+                        {
+                            "caratPrice": 248000,
+                            "catId": 4,
+                            "catName": "沙弗莱",
+                            "commodityId": 639006,
+                            "features": {
+                                "color": "1#",
+                                "shape": "蛋形/椭圆形",
+                                "clarity": "A+",
+                                "length": 700,
+                                "cutting": "G",
+                                "width": 500
+                            },
+                            "id": 283,
+                            "orderNo": "001511944864191249",
+                            "weight": "10000.00"
+                        }
+                    ],
+                    "id": 249,
+                    "orderNo": "001511944864191249",
+                    "status": 0,
+                    "statusDescription": "已创建",
+                    "userId": 65593,
+                    "userName": "子鱼",
+                    "utcCreate": 1511944864000
+                }
+            ],
+            "nextCursor": "1",
+            "totalNum": 31
         },
-        {
-          "catCount": 1,
-          "contactName": "子鱼",
-          "contactPhone": "",
-          "details": [
-            {
-              "caratPrice": 166000,
-              "catId": 4,
-              "catName": "沙弗莱",
-              "commodityId": 639011,
-              "features": {
-                "color": "1#",
-                "shape": "蛋形/椭圆形",
-                "clarity": "A-",
-                "length": 700,
-                "cutting": "VG",
-                "width": 500
-              },
-              "id": 293,
-              "orderNo": "001512036348171259",
-              "weight": "10.00"
-            }
-          ],
-          "id": 259,
-          "orderNo": "001512036348171259",
-          "status": 0,
-          "statusDescription": "已创建",
-          "userId": 65593,
-          "userName": "子鱼",
-          "utcCreate": 1512036348000
-        },
-        {
-          "catCount": 1,
-          "contactName": "子鱼",
-          "contactPhone": "18270837940",
-          "details": [
-            {
-              "caratPrice": 124000,
-              "catId": 4,
-              "catName": "沙弗莱",
-              "commodityId": 639020,
-              "features": {
-                "color": "2#",
-                "shape": "蛋形/椭圆形",
-                "clarity": "A-",
-                "length": 700,
-                "cutting": "VG",
-                "width": 500
-              },
-              "id": 291,
-              "orderNo": "001512036081651257",
-              "weight": "10.00"
-            }
-          ],
-          "id": 257,
-          "orderNo": "001512036081651257",
-          "status": 0,
-          "statusDescription": "已创建",
-          "userId": 65593,
-          "userName": "子鱼",
-          "utcCreate": 1512036082000
-        },
-        {
-          "catCount": 1,
-          "details": [
-            {
-              "caratPrice": 248000,
-              "catId": 4,
-              "catName": "沙弗莱",
-              "commodityId": 639006,
-              "features": {
-                "color": "1#",
-                "shape": "蛋形/椭圆形",
-                "clarity": "A+",
-                "length": 700,
-                "cutting": "G",
-                "width": 500
-              },
-              "id": 290,
-              "orderNo": "001512008644867256",
-              "weight": "1.00"
-            }
-          ],
-          "id": 256,
-          "invitingUserId": 69,
-          "invitingUserName": "皮皮杰",
-          "orderNo": "001512008644867256",
-          "status": 0,
-          "statusDescription": "已创建",
-          "userId": 70,
-          "userName": "白饭",
-          "utcCreate": 1512008645000
-        },
-        {
-          "catCount": 1,
-          "details": [
-            {
-              "caratPrice": 248000,
-              "catId": 4,
-              "catName": "沙弗莱",
-              "commodityId": 639006,
-              "features": {
-                "color": "1#",
-                "shape": "蛋形/椭圆形",
-                "clarity": "A+",
-                "length": 700,
-                "cutting": "G",
-                "width": 500
-              },
-              "id": 289,
-              "orderNo": "001512008013670255",
-              "weight": "1.00"
-            }
-          ],
-          "id": 255,
-          "invitingUserId": 69,
-          "invitingUserName": "皮皮杰",
-          "orderNo": "001512008013670255",
-          "status": 0,
-          "statusDescription": "已创建",
-          "userId": 70,
-          "userName": "白饭",
-          "utcCreate": 1512008014000
-        },
-        {
-          "catCount": 1,
-          "details": [
-            {
-              "caratPrice": 248000,
-              "catId": 4,
-              "catName": "沙弗莱",
-              "commodityId": 639006,
-              "features": {
-                "color": "1#",
-                "shape": "蛋形/椭圆形",
-                "clarity": "A+",
-                "length": 700,
-                "cutting": "G",
-                "width": 500
-              },
-              "id": 288,
-              "orderNo": "001512007987335254",
-              "weight": "1.00"
-            }
-          ],
-          "id": 254,
-          "invitingUserId": 69,
-          "invitingUserName": "皮皮杰",
-          "orderNo": "001512007987335254",
-          "status": 0,
-          "statusDescription": "已创建",
-          "userId": 70,
-          "userName": "白饭",
-          "utcCreate": 1512007987000
-        },
-        {
-          "catCount": 1,
-          "details": [
-            {
-              "caratPrice": 248000,
-              "catId": 4,
-              "catName": "沙弗莱",
-              "commodityId": 639006,
-              "features": {
-                "color": "1#",
-                "shape": "蛋形/椭圆形",
-                "clarity": "A+",
-                "length": 700,
-                "cutting": "G",
-                "width": 500
-              },
-              "id": 286,
-              "orderNo": "001512007765416252",
-              "weight": "1.00"
-            }
-          ],
-          "id": 252,
-          "invitingUserId": 69,
-          "invitingUserName": "皮皮杰",
-          "orderNo": "001512007765416252",
-          "status": 0,
-          "statusDescription": "已创建",
-          "userId": 70,
-          "userName": "白饭",
-          "utcCreate": 1512007765000
-        },
-        {
-          "catCount": 1,
-          "details": [
-            {
-              "caratPrice": 248000,
-              "catId": 4,
-              "catName": "沙弗莱",
-              "commodityId": 639006,
-              "features": {
-                "color": "1#",
-                "shape": "蛋形/椭圆形",
-                "clarity": "A+",
-                "length": 700,
-                "cutting": "G",
-                "width": 500
-              },
-              "id": 284,
-              "orderNo": "001511944900279250",
-              "weight": "10000.00"
-            }
-          ],
-          "id": 250,
-          "orderNo": "001511944900279250",
-          "status": 0,
-          "statusDescription": "已创建",
-          "userId": 65593,
-          "userName": "子鱼",
-          "utcCreate": 1511944900000
-        },
-        {
-          "catCount": 1,
-          "details": [
-            {
-              "caratPrice": 248000,
-              "catId": 4,
-              "catName": "沙弗莱",
-              "commodityId": 639006,
-              "features": {
-                "color": "1#",
-                "shape": "蛋形/椭圆形",
-                "clarity": "A+",
-                "length": 700,
-                "cutting": "G",
-                "width": 500
-              },
-              "id": 283,
-              "orderNo": "001511944864191249",
-              "weight": "10000.00"
-            }
-          ],
-          "id": 249,
-          "orderNo": "001511944864191249",
-          "status": 0,
-          "statusDescription": "已创建",
-          "userId": 65593,
-          "userName": "子鱼",
-          "utcCreate": 1511944864000
-        }
-      ],
-      "nextCursor": "1",
-      "totalNum": 31
-    },
-    "msg": "OK"
-  }
+        "msg": "OK"
+    }
 }

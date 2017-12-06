@@ -2,7 +2,7 @@
     "title": "获取地址信息",
     "description": "get 地址信息",
     "method": "POST",
-    "path": "/local/info/of/that",
+    "path": "/local/info/thatfuck",
     "response": {
         "code": "200",
         "data": {
