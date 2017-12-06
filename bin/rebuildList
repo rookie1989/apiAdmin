@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+
+/**
+ * rebuild jsonList nav.
+ */
+
+const fs = require('fs');
+const path = require('path');
+
+(() => {
+    const root = path.resolve(__dirname, '../resource');
+    const files = [];
+
+    //递归取出所有文件夹下所有文件的路径
+    function readDirSync(path) {
+        const pa = fs.readdirSync(path);
+        pa.forEach((name) => {
+            const cur_path = `${path}/${name}`;
+            const info = fs.statSync(cur_path);
+            if (name != "jsonList.json") {
+                files.push(cur_path);
+            }
+        });
+    }
+
+    readDirSync(root);
+    console.log(files);
+})();

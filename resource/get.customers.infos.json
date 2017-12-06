@@ -1,0 +1,61 @@
+{
+    "title": "获取客户信息",
+    "description": "获取客户信息",
+    "method": "GET",
+    "path": "/customers/infos",
+    "response": {
+        "code": "200",
+        "data": {
+            "models": [
+                {
+                    "address": "啊啊啊啊",
+                    "companyName": "",
+                    "customerPhone": "15376589170",
+                    "id": 75,
+                    "note": "そんな何かを求めて",
+                    "realName": "枪哥5",
+                    "utcCreate": 1495455396000
+                },
+                {
+                    "address": "杭州市 ",
+                    "companyName": "黄金公司",
+                    "customerPhone": "我不知道",
+                    "id": 50,
+                    "note": "备注信息",
+                    "realName": "客户1号",
+                    "utcCreate": 1509465600000
+                },
+                {
+                    "address": "航后是是是多少是",
+                    "companyName": "将看见伤口担惊受恐",
+                    "customerPhone": "12121",
+                    "id": 49,
+                    "note": "被书都是的的",
+                    "realName": "江西撒大声地",
+                    "utcCreate": 1509552000000
+                },
+                {
+                    "address": "花丸",
+                    "companyName": "本丸",
+                    "customerPhone": "15990194081",
+                    "id": 48,
+                    "note": "楽しいで何よりだ",
+                    "realName": "大和守安定",
+                    "userId": 103,
+                    "utcCreate": 1509465600000
+                },
+                {
+                    "address": "d",
+                    "companyName": "打发",
+                    "customerPhone": "0983832386",
+                    "id": 47,
+                    "realName": "adfafa",
+                    "utcCreate": 1501430400000
+                }
+            ],
+            "nextCursor": "1",
+            "totalNum": 47
+        },
+        "msg": "OK"
+    }
+}
