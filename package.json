@@ -6,9 +6,10 @@
     "start": "node bin/www",
     "dev": "./node_modules/.bin/nodemon bin/www",
     "prd": "pm2 start bin/www",
-    "rebuild": "node bin/rebuildList"
+    "rebuild": "node bin/rebuildList.js"
   },
   "dependencies": {
+    "ali-oss": "^4.11.2",
     "co": "^4.6.0",
     "debug": "^2.6.3",
     "ejs": "~2.3.3",
@@ -20,7 +21,9 @@
     "koa-router": "^7.1.1",
     "koa-static": "^3.0.0",
     "koa-views": "^5.2.1",
-    "less": "^2.7.3"
+    "less": "^2.7.3",
+    "md5": "^2.2.1",
+    "moment": "^2.19.4"
   },
   "devDependencies": {
     "nodemon": "^1.8.1"

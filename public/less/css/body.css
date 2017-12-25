@@ -22,3 +22,29 @@ body .flex-content {
 .oper-list a:hover {
   color: #2597c3;
 }
+span.label {
+  font-size: 14px;
+  font-weight: normal;
+  border-width: 1px;
+  border-style: solid;
+}
+span.label.get {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #3c763d;
+}
+span.label.post {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #31708f;
+}
+span.label.delete {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #a94442;
+}
+span.label.put {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #8a6d3b;
+}

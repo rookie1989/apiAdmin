@@ -2,28 +2,40 @@
     "warn": "存放所有的关系表，建议不要手动修改",
     "dataList": [
         {
-            "title": "获取客户信息",
-            "description": "获取客户信息",
-            "path": "/customers/infos",
+            "title": "按照bannerID删除banner",
+            "project": "ERP",
+            "url": "/banners/:d",
+            "method": "DELETE"
+        },
+        {
+            "title": "获取banner列表",
+            "project": "ERP",
+            "url": "/banners",
             "method": "GET"
         },
         {
-            "title": "采购退货导出",
-            "description": "采购退货导出",
-            "path": "/supplement/refunds/export",
+            "title": "查询用户收藏的商品列表",
+            "project": "buy",
+            "url": "/collections/infos",
             "method": "GET"
         },
         {
-            "title": "采购退货",
-            "description": "采购退货接口",
-            "path": "/supplement/refunds/infos",
+            "title": "前台-获取用户收藏的商品的品类信息",
+            "project": "buy",
+            "url": "/collections/user/cats",
             "method": "GET"
         },
         {
-            "title": "test api",
-            "description": "test api desc",
-            "path": "/goods/infos/list",
-            "method": "POST"
+            "title": "获取用户收藏的商品信息",
+            "project": "buy",
+            "url": "/collections/user",
+            "method": "GET"
+        },
+        {
+            "title": "前台-获取现货裸钻商品信息",
+            "project": "buy",
+            "url": "/commodities/diamonds",
+            "method": "GET"
         }
     ]
 }

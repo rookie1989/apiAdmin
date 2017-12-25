@@ -384,6 +384,50 @@ body .flex-content {
 .oper-list a:hover {
   color: #2597c3;
 }
+span.label {
+  font-size: 14px;
+  font-weight: normal;
+  border-width: 1px;
+  border-style: solid;
+}
+span.label.get {
+  color: #3c763d;
+  background-color: #dff0d8;
+  border-color: #3c763d;
+}
+span.label.post {
+  color: #31708f;
+  background-color: #d9edf7;
+  border-color: #31708f;
+}
+span.label.delete {
+  color: #a94442;
+  background-color: #f2dede;
+  border-color: #a94442;
+}
+span.label.put {
+  color: #8a6d3b;
+  background-color: #fcf8e3;
+  border-color: #8a6d3b;
+}
+.login-wrap {
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80%;
+}
+.login-wrap h1 {
+  text-align: center;
+}
+.login-wrap button {
+  width: 100%;
+}
+.login-wrap .tip {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  display: none;
+}
 .header {
   width: 100%;
   height: 64px;
@@ -391,8 +435,43 @@ body .flex-content {
   border-bottom: 1px solid #dcdcdc;
   background: #fff;
 }
+.header .header-content {
+  position: relative;
+}
 .header .header-content .logo {
   font-size: 18px;
+}
+.header .header-content .logo a {
+  color: inherit;
+}
+.header .header-content .logo a:hover {
+  color: #337ab7;
+  text-decoration: none;
+}
+.header .header-content .rebuild-list {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: none;
+  border: none;
+  color: #999;
+  opacity: .1;
+  -webkit-transition: al 0.4s;
+  -moz-transition: all 0.4s;
+  -ms-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+}
+.header .header-content .rebuild-list:hover {
+  color: #337ab7;
+  opacity: .75;
+  text-decoration: underline;
+  display: block;
+}
+.header .header-content .rebuild-list:active,
+.header .header-content .rebuild-list:focus {
+  border: none;
+  outline: none;
 }
 .main {
   padding: 30px 0;
@@ -422,6 +501,18 @@ body .flex-content {
   height: 64px;
   line-height: 64px;
 }
+.section-title .filter-btns {
+  float: left;
+}
+.section-title .filter-btns button:focus,
+.section-title .filter-btns button:active {
+  outline: none;
+}
+.section-title .filter-btns button.on {
+  background: #337ab7;
+  color: #fff;
+  border-color: #337ab7;
+}
 .section-title h3 {
   float: left;
   font-size: 16px;
@@ -429,6 +520,7 @@ body .flex-content {
   font-weight: normal;
   margin: 0;
   line-height: inherit;
+  display: none;
 }
 .section-title .btn-group {
   float: right;
@@ -437,6 +529,30 @@ body .flex-content {
 }
 .section-title .btn-group button {
   margin-left: 12px;
+}
+.module-list {
+  margin-bottom: 20px;
+}
+.module-list button {
+  display: none;
+  margin-bottom: 10px;
+}
+.module-list button:focus,
+.module-list button:active {
+  outline: none;
+}
+.module-list button.on {
+  background: #337ab7;
+  color: #fff;
+  border-color: #337ab7;
+  display: inline-block;
+}
+.module-list button.not-work {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+  border-style: dotted;
+  display: inline-block;
 }
 .api-detail {
   position: fixed;
@@ -456,6 +572,17 @@ body .flex-content {
 .api-detail .api-detail-code {
   margin-bottom: 50px;
 }
+.api-detail .close {
+  font-size: 64px;
+  font-weight: 100;
+  margin-top: 20px;
+  z-index: 100;
+  color: #999;
+  opacity: .75;
+}
+.api-detail .close:hover {
+  color: #d9534f;
+}
 .oper-api-wrap {
   position: fixed;
   left: 0;
@@ -469,8 +596,15 @@ body .flex-content {
   overflow-y: scroll;
 }
 .oper-api-wrap .oper-api-info {
-  margin-top: 50px;
+  margin-top: 30px;
   margin-bottom: 30px;
+}
+.oper-api-wrap .btns {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 56px;
+  line-height: 56px;
 }
 .oper-api-wrap .btns button {
   width: 72px;
@@ -480,6 +614,7 @@ body .flex-content {
   border: 1px solid #ddd;
 }
 .code-area .code-area-left {
+  position: relative;
   padding: 0;
 }
 .code-area .code-area-left textarea {
@@ -489,6 +624,15 @@ body .flex-content {
   border-right: solid 1px #ddd;
   border-radius: 0;
   resize: none;
+  outline: none;
+}
+.code-area .code-area-left .format-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.code-area .code-area-left .format-btn:active,
+.code-area .code-area-left .format-btn:focus {
   outline: none;
 }
 .code-area .code-area-right {
@@ -516,4 +660,13 @@ body .flex-content {
   resize: none;
   overflow-y: scroll;
   outline: none;
+}
+table tbody tr {
+  display: none;
+}
+table tbody tr {
+  display: none;
+}
+table tbody tr.show {
+  display: table-row !important;
 }

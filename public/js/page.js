@@ -4,15 +4,62 @@ var initDetailMask = function () {
     var h = wH - infoH - 50;
     $("#apiDetailCode").height(h);
 };
-var addApi = function (title, description, path, method, code) {
+var filterArr = function () {
+
+};
+var showTr = function () {
+    // arr = {
+    //     "buy": ["delivery", "purchaseCarts"],
+    //     "erp": ["banner"]
+    // }
+    var arr = new Object();
+    if ($("#filterBtns").find('button[name="all"]')) {
+        var projectBtns = $("#filterBtns").find('button[name!="all"]');
+        var moduleList = [];
+
+        for (var i = 0; i < projectBtns.length; i++) {
+            var name = $(projectBtns[i]).attr("name");
+            // console.log(name);
+            if (!arr[name]) {
+                arr[name] = new Array();
+            }
+            var thisModule = $("#moduleList").find('button.on[data-project=' + name + ']').not(".not-work");
+            for (var j = 0; j < thisModule.length; j++) {
+                arr[name].push($(thisModule[j]).attr("name"));
+            }
+        }
+    } else {
+        var projectBtns = $("#filterBtns").find('button.on');
+        var moduleList = [];
+
+        for (var i = 0; i < projectBtns.length; i++) {
+            var name = $(projectBtns[i]).attr("name");
+            if (!arr[name]) {
+                arr[name] = new Array();
+            }
+            var thisModule = $("#moduleList").find('button.on[data-project=' + name + ']').not(".not-work");
+            for (var j = 0; j < thisModule.length; j++) {
+                arr[name].push($(thisModule[j]).attr("name"));
+            }
+        }
+    }
+    // console.log(arr);
+    $("#apiList").find('tr').removeClass("show");
+    for (project in arr) {
+        arr[project].forEach(function (item, index, arr) {
+            $("#apiList").find('tr[data-project=' + project + '][name=' + item.toLowerCase() + ']').addClass("show");
+        });
+    }
+};
+var addApi = function (title, project, url, method, code) {
     $.ajax({
         type: "POST",
         url: "/addApi",
         dataType: "json",
         data: {
             title: title,
-            description: description,
-            path: path,
+            project: project,
+            url: url,
             method: method,
             code: code
         },
@@ -27,16 +74,18 @@ var addApi = function (title, description, path, method, code) {
         }
     })
 };
-var editApi = function (title, description, path, orginalPath, method, orginalMethod, code) {
+var editApi = function (title, project, orginalProject, url, orginalUrl, method, orginalMethod, code) {
+    // console.log(arguments);
     $.ajax({
         type: "POST",
         url: "/editApi",
         dataType: "json",
         data: {
             title: title,
-            description: description,
-            path: path,
-            orginalPath: orginalPath,
+            project: project,
+            orginalProject: orginalProject,
+            url: url,
+            orginalUrl: orginalUrl,
             method: method,
             orginalMethod: orginalMethod,
             code: code
@@ -53,10 +102,6 @@ var editApi = function (title, description, path, orginalPath, method, orginalMe
     })
 }
 $(function () {
-    // initDetailMask();
-    // $(window).resize(function () {
-    //     initDetailMask();
-    // });
     document.addEventListener('keydown', function (e) {
         if ($("#apiDetail").is(":visible")) {
             e = e || window.event;
@@ -67,28 +112,49 @@ $(function () {
             }
         }
     }, false);
+    $("#apiDetail").on("click", ".close", function () {
+        $("#apiDetail").hide();
+    });
     $("#apiList").on("click", ".edit-api", function () {
         var _attrList = $(this).parent(".oper-list");
+        var title = _attrList.attr("data-title").trim();
+        var project = _attrList.attr("data-project");
         var method = _attrList.attr("data-method");
-        var path = "/api" + _attrList.attr("data-path");
+        var urlNoPrefix = _attrList.attr("data-url");
+        var url = "/api" + _attrList.attr("data-url").trim();
+        if (title == "") {
+            alert("标题不能为空");
+            return;
+        } else if (project == "") {
+            alert("请选择项目");
+            return;
+        } else if (method == "") {
+            alert("请选择method");
+            return;
+        } else if (url == "") {
+            alert("请填写正确的url");
+            return;
+        }
         $.ajax({
             type: method,
-            url: path,
+            url: url,
             dataType: "json",
             success: function (data, status) {
                 $("#operApiWrap").show();
                 $("#operApiWrap").attr("data-type", "modify");
 
-                $("#operApiTitle").val(data.title);
-                $("#operApiDesc").val(data.description);
-                $("#operApiPath").val(data.path);
-                $("#operApiOrginalPath").val(data.path);
+                $("#operApiTitle").val(title);
+                $("#operApiProject").val(project);
+                $("#operApiOrginalProject").val(project);
 
-                $("#operApiMethod").val(data.method);
-                $("#operApiOrginalMethod").val(data.method);
+                $("#operApiUrl").val(urlNoPrefix);
+                $("#operApiOrginalUrl").val(urlNoPrefix);
+
+                $("#operApiMethod").val(method);
+                $("#operApiOrginalMethod").val(method);
 
 
-                $("#operApiCode").val(JSON.stringify(data.response, null, 4));
+                $("#operApiCode").val(JSON.stringify(data, null, 4));
                 $('#operApiCode').keyup();
             },
             fail: function (err, status) {
@@ -98,20 +164,23 @@ $(function () {
     });
     $("#apiList").on("click", ".view-detail", function () {
         var _attrList = $(this).parent(".oper-list");
+        var title = _attrList.attr("data-title");
+        var project = _attrList.attr("data-project");
         var method = _attrList.attr("data-method");
-        var path = "/api" + _attrList.attr("data-path");
+        var url = "/api" + _attrList.attr("data-url");
+        var url2 = _attrList.attr("data-url");
         $.ajax({
             type: method,
-            url: path,
+            url: url,
             dataType: "json",
             success: function (data, status) {
                 var info = [];
-                info += '<p>标题：' + data.title + '</p>';
-                info += '<p>描述：' + data.description + '</p>';
-                info += '<p>方式：' + data.method + '</p>';
-                info += '<p>地址：' + data.path + '</p>';
+                info += '<p>标题：' + title + '</p>';
+                info += '<p>项目：' + project + '</p>';
+                info += '<p>方式：' + method + '</p>';
+                info += '<p>地址：' + url2 + '</p>';
                 $("#apiDetailInfo").html(info);
-                $("#apiDetailCode pre").html(JSON.stringify(data.response, null, 4));
+                $("#apiDetailCode pre").html(JSON.stringify(data, null, 4));
                 $("#apiDetail").show();
             },
             fail: function (err, status) {
@@ -122,9 +191,9 @@ $(function () {
     $("#apiList").on("click", ".delete-api", function () {
         var _attrList = $(this).parent(".oper-list");
         var title = _attrList.attr("data-title");
-        var description = _attrList.attr("data-description");
+        var project = _attrList.attr("data-project");
         var method = _attrList.attr("data-method");
-        var path = _attrList.attr("data-path");
+        var url = _attrList.attr("data-url");
         if (confirm("真的要删除吗？")) {
             $.ajax({
                 type: "POST",
@@ -132,12 +201,12 @@ $(function () {
                 dataType: "json",
                 data: {
                     title: title,
-                    description: description,
+                    project: project,
                     method: method,
-                    path: path
+                    url: url
                 },
                 success: function (data, status) {
-                    console.log(data);
+                    // console.log(data);
                     if (data.message) {
                         window.location.reload();
                     }
@@ -158,10 +227,10 @@ $(function () {
         $("#operApiWrap").removeAttr("data-type");
         // 清空表单数据
         $("#operApiTitle").val("");
-        $("#operApiDesc").val("");
-        $("#operApiPath").val("");
-        $("#operApiOrginalPath").val("");
-        $("#operApiMethod").val("");
+        // $("#operApiProject").val("");
+        $("#operApiUrl").val("");
+        $("#operApiOrginalUrl").val("");
+        // $("#operApiMethod").val("");
         $("#operApiOrginalMethod").val("");
         $("#operApiCode").val("");
 
@@ -169,17 +238,89 @@ $(function () {
     });
     $("#confirmOperApiWrap").on("click", function () {
         var title = $("#operApiTitle").val().trim();
-        var description = $("#operApiDesc").val().trim();
-        var path = $("#operApiPath").val().trim();
+        var project = $("#operApiProject").val();
+        var url = $("#operApiUrl").val().trim();
         var method = $("#operApiMethod").val();
         var code = $("#operApiCode").val().trim();
-        if ($("#operApiWrap").attr("data-type") == "add") {
-            addApi(title, description, path, method, code);
-        } else if ($("#operApiWrap").attr("data-type") == "modify") {
-            var orginalPath = $("#operApiOrginalPath").val().trim();
-            var orginalMethod = $("#operApiOrginalMethod").val().trim();
-
-            editApi(title, description, path, orginalPath, method, orginalMethod, code);
+        if (title == "") {
+            alert("标题不能为空");
+            return;
+        } else if (project == "") {
+            alert("请选择项目");
+            return;
+        } else if (method == "") {
+            alert("请选择method");
+            return;
+        } else if (url == "") {
+            alert("请填写正确的url");
+            return;
+        } else if (code == "") {
+            alert("请填写code内容");
+            return;
         }
+        if ($("#operApiWrap").attr("data-type") == "add") {
+            addApi(title, project, url, method, code);
+        } else if ($("#operApiWrap").attr("data-type") == "modify") {
+            var orginalUrl = $("#operApiOrginalUrl").val().trim();
+            var orginalMethod = $("#operApiOrginalMethod").val().trim();
+            var orginalProject = $("#operApiOrginalProject").val().trim();
+
+            editApi(title, project, orginalProject, url, orginalUrl, method, orginalMethod, code);
+        }
+    });
+    $("#formatBtn").on("click", function () {
+        $('#operApiCode').keyup();
+        var parseCode = JSON.parse($("#operApiCode").val());
+        var result = JSON.stringify(parseCode, null, 4);
+        $("#operApiCode").val(result);
+    });
+    // 一级标签刷选
+    $("#filterBtns").on("click", "button", function () {
+        if ($(this).hasClass("on")) {
+            return false;
+        } else {
+            $(this).addClass("on").siblings().removeClass("on");
+            var name = $(this).attr("name");
+            $("#moduleList button").addClass("on not-work");
+            if (name == "all") {
+                $("#moduleList button").removeClass("not-work");
+                $("#apiList").removeClass("erp buy all").addClass("all");
+                $("#moduleList button").addClass("on");
+                showTr();
+            } else {
+
+                $("#apiList").removeClass("erp buy all").addClass(name);
+                $("#moduleList").find('button[data-project|=' + name + ']').removeClass("not-work");
+                $("#moduleList").find('button[data-project|=' + name + ']').addClass("on").siblings().not('button[data-project|=' + name + ']').removeClass("on not-work");
+                showTr();
+            }
+        }
+    });
+    // 二级筛选
+    $("#moduleList").on("click", "button", function () {
+        var name = $(this).attr("name");
+        // if ($(this).hasClass("not-work")) {
+        //     $(this).removeClass("not-work");
+        // } else {
+        //     $(this).addClass("not-work");
+        // }
+        $(this).removeClass("not-work");
+        $(this).siblings("button.on").addClass("not-work");
+        showTr();
+    });
+    $("#rebuildList").on("click", function () {
+        $.ajax({
+            type: "GET",
+            url: "/rebuild",
+            dataType: "json",
+            success: function (data, status) {
+                if (data.success) {
+                    window.location.reload();
+                }
+            },
+            fail: function (err, status) {
+                console.log(err)
+            }
+        })
     });
 });

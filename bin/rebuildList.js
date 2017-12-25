@@ -14,15 +14,31 @@ let tool = require("../libs/tool");
     let listData = new Object();
     listData["warn"] = "存放所有的关系表，建议不要手动修改";
     listData["dataList"] = [];
+    var notAddToArray = [".DS_Store", "jsonList.json"];
 
     //递归取出所有文件夹下所有文件的路径
-    function readDirSync(path) {
-        const pa = fs.readdirSync(path);
+    function readDirSync(findDir) {
+        // const pa = fs.readdirSync(path);
+        // pa.forEach((name) => {
+        //     const cur_path = `${path}/${name}`;
+        //     const info = fs.statSync(cur_path);
+        //     if (name != "jsonList.json" && name != ".DS_Store") {
+        //         files.push(cur_path);
+        //     }
+        // });
+        const pa = fs.readdirSync(findDir);
         pa.forEach((name) => {
-            const cur_path = `${path}/${name}`;
+            const cur_path = `${findDir}/${name}`;
             const info = fs.statSync(cur_path);
-            if (name != "jsonList.json" && name != ".DS_Store") {
-                files.push(cur_path);
+            if (info.isDirectory()) {
+                readDirSync(cur_path);
+            }else{
+                // console.log(name);
+                // 判断此文件是否是不需要的
+                if (notAddToArray.indexOf(name) < 0) {
+                    // 排除文件夹
+                    files.push(cur_path);
+                }
             }
         });
     }
@@ -47,8 +63,8 @@ let tool = require("../libs/tool");
                 var data = JSON.parse(data);
                 let item = {
                     title: data.title,
-                    description: data.description,
-                    path: data.path,
+                    project: data.project,
+                    url: data.url,
                     method: data.method
                 };
                 listData["dataList"].push(item);
@@ -66,5 +82,10 @@ let tool = require("../libs/tool");
     console.log(files);
     files.map((file, index, arr) => {
         getItem(file, index, arr);
+        if(index==arr.length-1){
+            return {
+                "results":"success"
+            }
+        }
     });
 })();

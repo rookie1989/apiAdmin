@@ -2,6 +2,7 @@
   border: 1px solid #ddd;
 }
 .code-area .code-area-left {
+  position: relative;
   padding: 0;
 }
 .code-area .code-area-left textarea {
@@ -11,6 +12,15 @@
   border-right: solid 1px #ddd;
   border-radius: 0;
   resize: none;
+  outline: none;
+}
+.code-area .code-area-left .format-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.code-area .code-area-left .format-btn:active,
+.code-area .code-area-left .format-btn:focus {
   outline: none;
 }
 .code-area .code-area-right {
